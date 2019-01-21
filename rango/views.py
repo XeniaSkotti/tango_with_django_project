@@ -12,7 +12,8 @@ def index(request):
 
     
     category_list = Category.objects.order_by('-likes')[:5]
-    context_dict = {'categories': category_list}
+    pages_list = Page.objects.order_by('-views')[:5]
+    context_dict = {'categories': category_list, 'likes': pages_list}
 
 	
     # Return a rendered response to send to the client.

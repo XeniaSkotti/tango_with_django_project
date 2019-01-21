@@ -14,28 +14,33 @@ def populate():
 
     python_pages = [
         {"title": "Official Python Tutorial",
-        "url":"http://docs.python.org/2/tutorial/"},
-        {"title":"How to Think like a Computer Scientist",
+        "url":"http://docs.python.org/2/tutorial/", "views": 180},
+        {"title":"How to Think like a Computer Scientist", "views":170,
          "url":"http://www.greenteapress.com/thinkpython/"},
         {"title":"Learn Python in 10 Minutes",
-         "url":"http://www.korokithakis.net/tutorials/python/"} ]
+         "url":"http://www.korokithakis.net/tutorials/python/", "views":128} ]
+
         
     django_pages = [
         {"title":"Official Django Tutorial",
-         "url":"https://docs.djangoproject.com/en/1.9/intro/tutorial01/"},
+         "url":"https://docs.djangoproject.com/en/1.9/intro/tutorial01/",
+         "views":200},
+
         {"title":"Django Rocks",
-         "url":"http://www.djangorocks.com/"},
+         "url":"http://www.djangorocks.com/", "views": 64},
         {"title":"How to Tango with Django",
-         "url":"http://www.tangowithdjango.com/"} ]
+         "url":"http://www.tangowithdjango.com/", "views": 64} ]
 
     other_pages = [
         {"title":"Bottle",
-         "url":"http://bottlepy.org/docs/dev/"},
-        {"title":"Flask",
-         "url":"http://flask.pocoo.org"} ]
+         "url":"http://bottlepy.org/docs/dev/","views":190},
+        {"title":"Flask",
+
+         "url":"http://flask.pocoo.org","views":160} ]
 
     cats = {"Python": {"pages": python_pages, "views":128, "likes":64},
-            "Django": {"pages": django_pages, "views":64, "likes":32},
+            "Django": {"pages": django_pages, "views":64, "likes":32},
+
             "Other Frameworks": {"pages": other_pages, "views":32, "likes":16} }
 
     #if you want to add more categories or pages,
@@ -48,7 +53,7 @@ def populate():
         c = add_cat(cat, cat_data["views"], cat_data["likes"])
         
         for p in cat_data["pages"]:
-            add_page(c, p["title"], p["url"], cat_data["views"])
+            add_page(c, p["title"], p["url"], p["views"])
 
         #print out the categories we have added.
         for c in Category.objects.all():
@@ -74,5 +79,6 @@ if __name__ == "__main__":
     print("Starting Rango population script...")
     populate()
                 
-         
+         
+
     
