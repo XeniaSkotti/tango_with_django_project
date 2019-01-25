@@ -25,18 +25,19 @@
 		</div>
 		<h1>Most Viewed Pages</h1>
 		<div>
-		{% if pages %}
+		{% if likes %}
 		<u1>
-			{% for page in pages %}
+			{% for page in likes %}
 			<!-- Following line changed to add an HTML hyperlink -->
 				
-				<li><li>><a href="{{ page.url }}">{{ page.title }}</a></li></a></li>
+				<li><a href="{{ page.url }}">{{ page.title }}</a></li>
 			{% endfor %}
 		</u1>
 		{% else %}
 			<strong> There are no categories present. </strong>
 		{% endif %}
 		</div>
+		<br>
 		<div>
 			<a href = "/rango/about/">About Rango</a><br/>
 			<img src ="{% static "images/rango.jpg" %}"
