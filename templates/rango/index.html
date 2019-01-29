@@ -5,7 +5,7 @@
 	<head>
 		<title>Rango</title>
 	</head>
-	
+
 	<body>
 		<h1>Rango says...</h1>
 		<div>hey there partner! </div>
@@ -29,7 +29,7 @@
 		<u1>
 			{% for page in likes %}
 			<!-- Following line changed to add an HTML hyperlink -->
-				
+
 				<li><a href="{{ page.url }}">{{ page.title }}</a></li>
 			{% endfor %}
 		</u1>
@@ -40,6 +40,7 @@
 		<br>
 		<div>
 			<a href = "/rango/about/">About Rango</a><br/>
+			<a href = "/rango/add_category/">Add a new category</a><br/>
 			<img src ="{% static "images/rango.jpg" %}"
 			alt = "Picture of Rango" /> <!--New line-->
 		</div>
