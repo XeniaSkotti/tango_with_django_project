@@ -1,48 +1,38 @@
-<DOCTYPE html>
-
-{% load staticfiles %}  <!--New line-->
-<html>
-	<head>
-		<title>Rango</title>
-	</head>
-
-	<body>
-		<h1>Rango says...</h1>
-		<div>hey there partner! </div>
-		<h1>Most Liked Categories</h1>
+{% extends 'rango/base.html' %}
+	{% load staticfiles %}
+	{% block title_block %}
+		Index
+	{% endblock %}
+	{% block body_block %}
 		<div>
-		{% if categories %}
-		<u1>
-			{% for category in categories %}
-			<!-- Following line changed to add an HTML hyperlink -->
-
-				<li><a href={% url 'show_category' category.slug}>{{ category.name }}</a></li>
-			{% endfor %}
-		</u1>
-		{% else %}
-			<strong> There are no categories present. </strong>
-		{% endif %}
+			<h1>Rango says...</h1>
+			hey there partner!
 		</div>
-		<h1>Most Viewed Pages</h1>
 		<div>
-		{% if likes %}
-		<u1>
-			{% for page in likes %}
-			<!-- Following line changed to add an HTML hyperlink -->
+			<h3>Most Liked Categories</h3>
+			{% if categories %}
+			<u1>
+				{% for category in categories %}
+				<!-- Following line changed to add an HTML hyperlink -->
 
-				<li><a href="{{ page.url }}">{{ page.title }}</a></li>
-			{% endfor %}
-		</u1>
-		{% else %}
-			<strong> There are no categories present. </strong>
-		{% endif %}
+					<li><a href={% url 'show_category' category.slug}>{{ category.name }}</a></li>
+				{% endfor %}
+			</u1>
+			{% else %}
+				<strong> There are no categories present. </strong>
+			{% endif %}
 		</div>
-		<br>
 		<div>
-			<a href = "/rango/about/">About Rango</a><br/>
-			<a href = "/rango/add_category/">Add a new category</a><br/>
-			<img src ="{% static "images/rango.jpg" %}"
-			alt = "Picture of Rango" /> <!--New line-->
-		</div>
-	</body>
-</html>
+			<h3>Most Viewed Pages</h3>
+			{% if pages %}
+			<u1>
+				{% for page in pages %}
+					<li><a href="{{ page.url }}">{{ page.title }}</a></li>
+				{% endfor %}
+			</u1>
+			{% else %}
+				<strong> There are no categories present. </strong>
+			{% endif %}
+			</div>
+			<img src ="{% static "images/rango.jpg" %}" alt = "Picture of Rango" /> <!--New line-->
+{% endblock %}
