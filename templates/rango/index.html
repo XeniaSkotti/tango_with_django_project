@@ -5,8 +5,13 @@
 	{% endblock %}
 	{% block body_block %}
 		<div>
-			<h1>Rango says...</h1>
-			hey there partner!
+			<h1>Rango says...
+			{% if user.is_authenticated %}
+				hello {{ user.username }}
+			{% else %}
+				hey there partner!
+			{% endif %}
+			</h1>
 		</div>
 		<div>
 			<h3>Most Liked Categories</h3>
