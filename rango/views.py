@@ -22,6 +22,7 @@ def index(request):
 
     visitor_cookie_handler(request)
     context_dict['visits'] = request.session['visits']
+    print(request.session['visits'])
 
     # Return a rendered response to send to the client.
     # We make use of the shortcut function to make our lives easier.
@@ -32,6 +33,7 @@ def index(request):
 def about(request):
     if request.session.test_cookie_worked():
         print("TEST COOKIE WORKED!")
+        print(request.session['visits'])
         request.session.delete_test_cookie()
     return render(request, "rango/about.html", context = {})
 
@@ -108,6 +110,7 @@ def add_page(request, category_name_slug):
             print(form.errors)
     context_dict = {'form':form, 'category':category}
     return render(request, 'rango/add_page.html', context_dict)
+
 def register(request):
     # A boolean value for telling the template
     # whether the registration was successful.
