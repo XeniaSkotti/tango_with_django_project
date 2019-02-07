@@ -33,9 +33,10 @@ def index(request):
 def about(request):
     if request.session.test_cookie_worked():
         print("TEST COOKIE WORKED!")
-        print(request.session['visits'])
         request.session.delete_test_cookie()
-    return render(request, "rango/about.html", context = {})
+    visitor_cookie_handler(request)
+    print(request.session['visits'])
+    return render(request, "rango/about.html", context = {'visits':request.session['visits']})
 
 def show_category(request, category_name_slug):
     # Create a context dictionary which we can pass
